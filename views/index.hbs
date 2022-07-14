@@ -1,0 +1,26 @@
+<title>Home / World Exchangers</title>
+<div class="container">
+<h1>Welcome {{user.first_name}}🌍</h1>
+{{#if userInfo._host_country}}
+See your org: <a href="org/{{userInfo._organization._id}}"><img src="{{userInfo._organization.org_logo}}" alt="" class="headerIcon">{{userInfo._organization.org_name}}</a><br>
+See your host country: <a href="/country/{{userInfo._host_country._id}}"><img src="{{userInfo._host_country.flags.png}}" alt="" class="headerIcon">{{userInfo._host_country.name.common}}</a>
+
+{{/if}}
+{{#if userInfo._home_country}}
+<br>
+See your home country: <a href="/country/{{userInfo._home_country._id}}"><img src="{{userInfo._home_country.flags.png}}" alt="" class="headerIcon">{{userInfo._home_country.name.common}}</a>
+{{/if}}
+
+<br>
+<h6>Countries:</h6>
+<button><a href="/country/list/">All countries</a></button>
+
+{{#if otherUsers}}
+<h4>Meet other Exchange Students:</h4>
+    <div class="landingIcons">
+    {{#each otherUsers}}
+    <a href="/user/{{_id}}"><img src="{{profile_pic}}" alt="" class="headerIcon"></a>
+    {{/each}}
+    </div>
+{{/if}}
+</div>

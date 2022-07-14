@@ -1,0 +1,37 @@
+<title>Sign Up / Step 2 / World Exchangers</title>
+
+<br>
+   <h2>Sign Up</h2>
+   <h3>Step 2 out of 2</h3>
+   <h4>Create your Exchange Organization</h4>
+<form action="/auth/signup/org/{{user._id}}" method="POST">
+                  <label>Organization name:
+            <input type="text" name="org_name" required></input>
+         </label>
+      <br>
+            <label>Slogan:
+            <input type="text" name="slogan"></input>
+         </label>
+      <br>
+                  <label>Full description:
+            <input type="text" name="description"></input>
+         </label>
+      <br>
+              <label>Where is your organization located?
+            <select name="_org_country" required>
+               {{#each countries}}
+               <option value="{{_id}}">{{name.common}}</option>
+               {{/each}}
+            </select>
+         </label>
+      <br> 
+                   <label>Add official website URL:
+            <input type="string" name="websiteURL"></input>
+         </label>
+      <br>     
+      <button type="submit">Sign Up</button>
+   </form>
+
+{{#if errorMessage}}
+   {{errorMessage}}
+{{/if}}

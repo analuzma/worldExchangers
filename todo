@@ -1,0 +1,38 @@
+ROUTES USER:
+[ ] get user
+[ ] post user
+[ ] edit user
+[ ] delete user
+
+ROUTES organizaciones:
+[ ] MVP "Un asesor de ventas de world exchangers te va a contactar pronto" FACIL
+            //"ADMIN, lista de organizaciones, editar, cuales son visibles o no ()" DIFICIL PERO BUENO
+[ ] get profile
+[ ] post profile
+[ ] edit profile
+[ ] delete profile 
+
+VIEWS:
+[ ] partials header
+[ ] partials footer     
+[ ] ownProfile look (with currentSession buttons)
+[ ] otherProfile look
+[ ] ownOrganization ownProfile
+
+MIDDLEWARE:
+[ ] hasAnOrganization
+[ ] hasCountries
+[ ] you can only see your own org
+
+RESTCOUNTRIES API:
+[ ] list countries 
+[ ] list countries by region
+[ ] country profile route
+
+
+HBS:
+[x] Partials WORK
+///////////////////
+Comments? MODEL
+AUTOCOMPLETE? SEARCH para organizaciones
+DARKMODE

@@ -1,0 +1,37 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500;600;800&display=swap" rel="stylesheet">
+      <link rel="icon" type="image/x-icon" href="/images/we_logo_round_mxkchc.png">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+         
+  </head>
+  <body>
+
+<header>
+    <nav class="navbar">
+        <div class="container navbar-content">        {{#if user}}
+    <div> <a href="/"><img src="/images/we_logo_round_mxkchc.png" widgth="50" height="50" alt=""></a></div>
+    <div class="headerIcons"></div>
+
+        <ul>
+          <li><button><a href="/user/{{user._id}}">My Profile</a></button></li>
+          <li><button><a href="/auth/logout">Log Out</a></button></li>
+        </ul>        
+        {{/if}}
+
+        </div>
+    </nav> 
+</header>
+
+
+{{{ body }}}
+
+    <script src="/js/script.js"></script>
+
+  </body>
+
+</html>

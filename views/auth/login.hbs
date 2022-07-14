@@ -1,0 +1,19 @@
+<title>Login / World Exchangers</title>
+
+<form action="/auth/login" method="POST">
+<br>
+      <label> Username
+      <input type="text" name="username">
+   </label><br>
+   <label> Password
+      <input type="password" name="password">
+   </label>
+<br>
+   <button type="submit">Submit</button>
+</form>
+
+<a href="/auth/signUp">Sign Up</a>
+
+{{#if errorMessage}}
+   {{errorMessage}}
+{{/if}}

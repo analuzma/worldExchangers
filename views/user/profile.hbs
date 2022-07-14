@@ -1,0 +1,15 @@
+<title>Profile / {{data.username}}</title>
+<br>
+<img src="{{data.profile_pic}}" alt="" width="100" height="100" style="border-radius: 50%"/>
+<h1>{{data.username}}</h1>
+<div>
+  <p>Nombre: {{data.first_name}}</p>
+  <p>Email: {{data.email}}</p>
+  <p>Username: {{data.username}}</p>
+  <p>Host Country: {{data._host_country.name.common}} <img src="{{data._host_country.flags.png}}" alt=""></p>
+  <p>WILL DELETE Role: {{data.role}}</p>
+  <p>My organization:</p>{{data._organization.org_name}}
+  {{data._organization.slogan}}
+</div>
+
+<button><a href="/user/edit-user">Edit my Profile</a></button>

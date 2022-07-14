@@ -1,0 +1,25 @@
+
+<br>
+<div class="container">
+<img src="{{data.org_logo}}" width="100" height="75" alt="">
+<br>
+<h2>{{data.org_name}}</h2><br>
+<p>Country:</p>
+<b>{{data._org_country.name.common}}</b>
+<p>Slogan:</p>
+<b>{{data.slogan}} </b>
+<p>Description:</p>
+<b>{{data.description}} </b>
+<p>Website:</p>
+<b><button><a href="">{{data.websiteURL}} </a>Go to website</button></b>
+</div>
+{{#each data._org_owner}}
+                {{this.username}}
+{{/each}}
+        {{#each data._students}}
+            <li>
+                {{this.username}}
+</li>
+    
+        {{/each}}
+
