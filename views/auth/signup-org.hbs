@@ -1,24 +1,25 @@
 <title>Sign Up / Step 2 / World Exchangers</title>
-
-<br>
+      <img class="postLogo" src="/images/we_logo_round_mxkchc.png" alt="">
+<div class="container-pop">
    <h2>Sign Up</h2>
    <h3>Step 2 out of 2</h3>
-   <h4>Create your Exchange Organization</h4>
+   <h4>Create your Exchange Organization</h4> <p>You will be able to edit later on</p>
+   
 <form action="/auth/signup/org/{{user._id}}" method="POST">
                   <label>Organization name:
-            <input type="text" name="org_name" required></input>
+            <input type="text" name="org_name" class="rounded-input border-customized-input"  required></input>
          </label>
       <br>
             <label>Slogan:
-            <input type="text" name="slogan"></input>
+            <input type="text" name="slogan" class="rounded-input border-customized-input"  ></input>
          </label>
       <br>
                   <label>Full description:
-            <input type="text" name="description"></input>
+            <input type="text" name="description" class="rounded-input border-customized-input"  ></input>
          </label>
       <br>
               <label>Where is your organization located?
-            <select name="_org_country" required>
+            <select name="_org_country" class="rounded-input border-customized-input"  required>
                {{#each countries}}
                <option value="{{_id}}">{{name.common}}</option>
                {{/each}}
@@ -26,12 +27,13 @@
          </label>
       <br> 
                    <label>Add official website URL:
-            <input type="string" name="websiteURL"></input>
+            <input type="string" name="websiteURL" class="rounded-input border-customized-input" ></input>
          </label>
       <br>     
-      <button type="submit">Sign Up</button>
+      <button type="submit"  class="btn-right" >Sign Up</button>
    </form>
 
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
+</div>

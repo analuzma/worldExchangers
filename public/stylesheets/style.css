@@ -2,7 +2,7 @@
   --color-bg: #202d36;
   --color-bg-secondary: #2B3743;
   --color-text: #ffffff;
-  --color-anchor: #0078D7;
+  --color-anchor: #0186f2;
   --color-anchor-hover: #16C60C;
 }
 
@@ -40,9 +40,7 @@ a:hover{
 width: 50%;
 margin-left: auto;
 margin-right: auto;
-background-color: #2B3743;
 }
-
 
 .headerIcon {
   width: 32px;
@@ -99,11 +97,13 @@ background-color: #2B3743;
   margin-left: auto;
   margin-right: auto;
   z-index: 1;
-  margin-bottom: -10%;
+  margin-bottom: -8%;
   border: white solid 4px;
   border-radius: 50%;
   box-shadow: 1px 2px 4px rgba(0,0,0,.1);
 }
+
+
 
 .whiteBG {
 background-color: rgba(255, 255, 255, 0.747);
@@ -113,14 +113,16 @@ padding: 14px;
 box-shadow: 1px 2px 4px rgba(0,0,0,.1);
 padding: 5%;
 display: flex;
+  border: white solid 4px;
 justify-content: center;
 align-items: center;
 flex-direction: column;
+
 }
 .btnCTA{
   background-color: #ff4742; 
   border: #ff4742;
-  border: 1px solid;
+  border: 4px solid;
   border-radius: 10px;
   color: white;
   padding: 15px 10px;
@@ -137,7 +139,7 @@ flex-direction: column;
     color: #ff4742;
     background-color: #ffffff; 
   border: #ff4742;
-  border: 1px solid;
+  border: 4px solid;
   box-shadow: 1px 2px 4px rgba(0,0,0,.1);
 }
 
@@ -149,8 +151,6 @@ flex-direction: column;
   color: #ff4742;
     text-decoration: none;
 }
-
-
 
 .flex-child > button{
     background-color: #4CAF50; /* Green */
@@ -179,4 +179,72 @@ flex-direction: column;
   margin-right: -10px;
 }
 
+/* FORMS (SIGNUP LOGIN SIGNUPstep2)  */
+.postLogo {
+  display: flex;
+  width: 100;
+  height: 100;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+  margin-bottom: -50;
+  border: white solid 4px;
+  border-radius: 50%;
+}
+.container-pop {
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+border: white solid 4px;
+background-color: var(--color-bg-secondary);
+border-radius: 10px;
+padding: 14px;
+box-shadow: 1px 2px 4px rgba(0,0,0,.1);
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
 
+input[type=text] , input[type=email] , 
+input[type=password], select{
+  font: 20px "Nunito Sans", sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+    padding: 5px;
+     margin:5px 0;
+}
+
+.signup-text-input {
+  font: 20px "Nunito Sans", sans-serif;
+  color: var(--color-text);
+}
+.border-customized-input {
+    border-radius:10px;
+
+   border: 2px solid #eee;
+}
+hr.dashed {
+  border-top: 1px dashed --color-bg;
+}
+
+.btn-right {
+  background-color: #ffffff; 
+  border: #ff4742;
+  color:    #ff4742;
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  float: right;
+    font: 20px "Nunito Sans", sans-serif;
+}
+.btn-right:hover {
+  background-color: #ff4742; 
+  border: #ff4742;
+  color:    #ffffff;
+  border: 2px solid;
+}
+
+/*HEADER*/
