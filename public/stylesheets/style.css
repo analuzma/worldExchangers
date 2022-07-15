@@ -2,11 +2,10 @@
   --color-bg: #202d36;
   --color-bg-secondary: #2B3743;
   --color-text: #ffffff;
-  --color-anchor: #0186f2;
-  --color-anchor-hover: #16C60C;
+  --color-anchor: #aae9f0;
+  --color-anchor-hover: #44A3AD;
   --color-btn-right: #44A3AD;
 }
-
 
 *, *:before, *:after {
   box-sizing: inherit;
@@ -47,7 +46,7 @@ margin-right: auto;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: #eee 3px solid;
+  border: #eee 2px solid;
 }
 
 /* LANDING */
@@ -103,8 +102,6 @@ margin-right: auto;
   border-radius: 50%;
   box-shadow: 1px 2px 4px rgba(0,0,0,.1);
 }
-
-
 
 .whiteBG {
 background-color: rgba(255, 255, 255, 0.747);
@@ -213,6 +210,7 @@ input[type=password],  input[type=file], input, select{
   background-color: var(--color-bg);
     padding: 7px;
      margin:7px 0;
+     width: 60%;
 }
 
 ::file-selector-button {
@@ -231,13 +229,13 @@ input[type=password],  input[type=file], input, select{
    border: 2px solid #eee;
 }
 hr.dashed {
-  border-top: 1px dashed --color-bg;
+  border-top: 2px dashed var(--color-bg);
 }
 
 .btn-right {
-  background-color: #ffffff; 
+  background-color: var(--color-btn-right); 
   border:  var(--color-btn-right); 
-  color:    var(--color-btn-right); 
+  color:    var(--color-text); 
   border: 2px solid;
   margin-top: 7px;
   border-radius: 10px;
@@ -246,11 +244,12 @@ hr.dashed {
   text-decoration: none;
   float: right;
     font: 20px "Nunito Sans", sans-serif;
+      cursor: pointer;
 }
 .btn-right:hover {
-  background-color: var(--color-btn-right); 
+  background-color: var(--color-text); 
   border: var(--color-btn-right);
-  color:    #ffffff;
+  color:    var(--color-btn-right);
   border: 2px solid;
 }
 
@@ -269,4 +268,62 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
+}
+
+.flag-emoji {
+  width: 2rem;
+  height: 1.2rem;
+  border: #eee 2px solid;
+  border-radius: 5px;
+}
+.flag-emoji:hover {
+  width: 2rem;
+  height: 1.2rem;
+  border: var(--color-anchor-hover) 2px solid;
+  border-radius: 5px;
+}
+
+/* PROFILE  */
+.flag-big {
+  width: 4rem;
+  height: 2.4rem;
+  border: #eee 2px solid;
+  border-radius: 5px;
+}
+.flag-big:hover {
+  width: 4rem;
+  height: 2.4rem;
+  border: var(--color-anchor-hover)  2px solid;
+  border-radius: 5px;
+}
+
+.vertical {
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+border: white solid 4px;
+background-color: var(--color-bg-secondary);
+border-radius: 10px;
+padding: 14px;
+box-shadow: 1px 2px 4px rgba(0,0,0,.1);
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+.profile-logo {
+  width: 100;
+  height: 100;
+  border: white solid 4px;
+  border-radius: 50%;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-around;
+  background-color: var(--color-bg);
+  border-radius: 10px;
+  padding: 10px;
 }
