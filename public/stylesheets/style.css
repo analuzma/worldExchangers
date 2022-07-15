@@ -254,6 +254,31 @@ hr.dashed {
 }
 
 /*HEADER*/
+.navbar-content{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.header-icons {
+    font-size:1em;
+  color:grey;
+  cursor:pointer;
+
+}
+.header-icons > ul{
+  list-style: none;
+    display: flex;
+  justify-content: space-evenly;
+}
+.header-icons > li{
+  float: right;
+}
+
+.header-icons:hover .fa-solid:before{
+  color:var(--color-btn-right);
+  opacity:0.4;
+}
 
 /* HOME */
 .yellow-warning {

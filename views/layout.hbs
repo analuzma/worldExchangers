@@ -7,22 +7,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500;600;800&display=swap" rel="stylesheet">
       <link rel="icon" type="image/x-icon" href="/images/we_logo_round_mxkchc.png">
     <link rel="stylesheet" href="/stylesheets/style.css">
-         
   </head>
   <body>
 
 <header>
     <nav class="navbar">
-        <div class="container navbar-content">        {{#if user}}
+        <div class="container navbar-content ">        
+    {{#if user}}
     <div> <a href="/"><img src="/images/we_logo_round_mxkchc.png" widgth="50" height="50" alt=""></a></div>
-    <div class="headerIcons"></div>
-
+<div class="header-icons">
         <ul>
-
-          <li><button><a href="/user/{{user._id}}">My Profile</a></button></li>
-
-          <li><button><a href="/auth/logout">Log Out</a></button></li>
-        </ul>        
+          <li>
+              <a href="/user/{{user._id}}"> <i class="fa-regular fa-circle-user"> </i> My Profile</a> 
+          </li>
+               <li><a href="/auth/logout"><i class="fa-regular fa-gear"></i>  Settings</a>
+          </li>
+          <li><a href="/auth/logout"><i class="fa-regular fa-arrow-right-from-bracket"></i> Log Out</a>
+          </li>
+        </ul>   
+        </div>     
         {{/if}}
 
         </div>
@@ -33,7 +36,7 @@
 {{{ body }}}
 
     <script src="/js/script.js"></script>
-
+<script src="https://kit.fontawesome.com/f5ebd59c19.js" crossorigin="anonymous"></script>
   </body>
 
 </html>
