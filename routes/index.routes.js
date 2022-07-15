@@ -32,7 +32,6 @@ router.get("/", isLoggedIn,
 async (req, res, next) => {
   try {
     const {user} = req.session
-
     const userInfo = await User.findById(user._id).populate('_host_country _organization')
     const otherUsers = await User.find().sort("createdAt: 1")
   .limit(8).populate("_host_country")

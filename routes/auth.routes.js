@@ -143,15 +143,18 @@ router.post("/signup", isLoggedOut, (req, res) => {
 router.post('/signup/user/:id', isLoggedIn, async (req,res,next)=>{
     
   const {id} = req.params
-  const {_home_country, _host_country, _organization} = req.body;
 
+  const {_home_country, _host_country, _organization} = req.body;
+      const {user}=req.session
   try{
+
     //current user is updated to have selected home country, host country and organizatiton
     const user2 = await User.findByIdAndUpdate(id,{_home_country, _host_country, _organization, step2:true}, {new:true})
         //current user is added to selected organization
     const organization = await Organization.findByIdAndUpdate({_id: _organization}, {$push: {'_students': id}})
     //current user is added to selected host contry
     const country = await Country.findByIdAndUpdate({_id: _host_country}, {$push: {'_students': id} })   
+    console.log(user)
   res.redirect("/")
   } catch(error){
     res.status(500).json({ error });
@@ -222,7 +225,6 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        //HERE I COULD ADD REDIRECTS DEPENDING ON USER ROLE
         return res.redirect("/");
       });
     })
