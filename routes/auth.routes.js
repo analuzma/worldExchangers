@@ -151,10 +151,9 @@ router.post('/signup/user/:id', isLoggedIn, async (req,res,next)=>{
         //current user is added to selected organization
     const organization = await Organization.findByIdAndUpdate({_id: _organization}, {$push: {'_students': id}})
     //current user is added to selected host contry
-    const country = await Country.findByIdAndUpdate({_id: _host_country}, {$push: {'_students': id} })    
-    
-   res.redirect(`/user/${id}`)
-  }catch(error){
+    const country = await Country.findByIdAndUpdate({_id: _host_country}, {$push: {'_students': id} })   
+  res.redirect("/")
+  } catch(error){
     res.status(500).json({ error });
     console.log(error)}
 });

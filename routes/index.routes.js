@@ -26,8 +26,9 @@ router.get("/landing", (req, res, next) => {
 //   })
 // });
 
-// HOME DASHBOARD
-router.get("/", isLoggedIn, hasDoneStep2,
+// HOME DASHBOARD  
+//let them in even if they havent done step 2, but show a message
+router.get("/", isLoggedIn, 
 async (req, res, next) => {
   try {
     const {user} = req.session

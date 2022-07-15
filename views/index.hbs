@@ -1,6 +1,8 @@
 <title>Home / World Exchangers</title>
 <div class="container">
 <h1>Welcome {{user.first_name}}🌍</h1>
+
+{{#if userInfo.step2}} {{!-- step2 is true --}}
 {{#if userInfo._host_country}}
 See your org: <a href="org/{{userInfo._organization._id}}"><img src="{{userInfo._organization.org_logo}}" alt="" class="headerIcon">{{userInfo._organization.org_name}}</a><br>
 See your host country: <a href="/country/{{userInfo._host_country._id}}"><img src="{{userInfo._host_country.flags.png}}" alt="" class="headerIcon">{{userInfo._host_country.name.common}}</a>
@@ -10,7 +12,6 @@ See your host country: <a href="/country/{{userInfo._host_country._id}}"><img sr
 <br>
 See your home country: <a href="/country/{{userInfo._home_country._id}}"><img src="{{userInfo._home_country.flags.png}}" alt="" class="headerIcon">{{userInfo._home_country.name.common}}</a>
 {{/if}}
-
 <br>
 <h6>Countries:</h6>
 <button><a href="/country/list/">All countries</a></button>
@@ -23,4 +24,12 @@ See your home country: <a href="/country/{{userInfo._home_country._id}}"><img sr
     {{/each}}
     </div>
 {{/if}}
+{{else}} {{!-- step2 --}}
+
+<div class="yellow-warning">You didn't finish signing up! <br>
+<a href="/auth/signup/{{userInfo.role}}/{{userInfo._id}}">Continue</a>
+
+</div>
+{{/if}} {{!-- step2 --}}
+
 </div>
