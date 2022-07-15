@@ -16,7 +16,6 @@ const Country = require("../models/Country.model");
 // Middlewares
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
-const hasDoneStep2 = require("../middleware/hasDoneStep2");
 const {checkRole} =require("../middleware/checkRole")
   
 /////////////////////////////////////**ROUTES**/
@@ -149,7 +148,9 @@ router.post('/signup/user/:id', isLoggedIn, async (req,res,next)=>{
   try{
 
     //current user is updated to have selected home country, host country and organizatiton
-    const user2 = await User.findByIdAndUpdate(id,{_home_country, _host_country, _organization, step2:true}, {new:true})
+    const user2 = await User.findByIdAndUpdate(id,{_home_country, _host_country, _organization, step2:true}, {new:true}).then((updatedUser) => {
+        //overwrite current req.session
+        req.session.user = updatedUser})
         //current user is added to selected organization
     const organization = await Organization.findByIdAndUpdate({_id: _organization}, {$push: {'_students': id}})
     //current user is added to selected host contry
@@ -171,9 +172,10 @@ router.post('/signup/org/:id', isLoggedIn, async (req,res,next)=>{
     const organization = await Organization.create({_org_country, org_name, slogan, description, websiteURL, _org_owner:id})
     console.log("organzation:", organization)
     // org is added to User(_organization) and step2:true
-    const user2 = await User.findByIdAndUpdate(id, { $set: {'_organization': organization}, step2: true })
-        console.log("user2:", user2)
-   // created organization is added to hot country
+    const user2 = await User.findByIdAndUpdate(id, { $set: {'_organization': organization}, step2: true, org_owner: true }).then((updatedUser) => {
+        //overwrite current req.session
+        req.session.user = updatedUser})
+   // created organization is added to country
     const country = await Country.findByIdAndUpdate({_id: _org_country}, {$push: {'_organizations': _org_country} })   
         console.log("organzation:", country)
 

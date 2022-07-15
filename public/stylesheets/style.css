@@ -4,6 +4,7 @@
   --color-text: #ffffff;
   --color-anchor: #0186f2;
   --color-anchor-hover: #16C60C;
+  --color-btn-right: #44A3AD;
 }
 
 
@@ -206,21 +207,27 @@ flex-direction: column;
 }
 
 input[type=text] , input[type=email] , 
-input[type=password], select{
+input[type=password],  input[type=file], input, select{
   font: 20px "Nunito Sans", sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg);
-    padding: 5px;
-     margin:5px 0;
+    padding: 7px;
+     margin:7px 0;
+}
+
+::file-selector-button {
+   font: 20px "Nunito Sans", sans-serif;
+  color: var(--color-bg);
+  border-radius: 10px;
 }
 
 .signup-text-input {
   font: 20px "Nunito Sans", sans-serif;
   color: var(--color-text);
 }
+
 .border-customized-input {
     border-radius:10px;
-
    border: 2px solid #eee;
 }
 hr.dashed {
@@ -229,9 +236,10 @@ hr.dashed {
 
 .btn-right {
   background-color: #ffffff; 
-  border: #ff4742;
-  color:    #ff4742;
+  border:  var(--color-btn-right); 
+  color:    var(--color-btn-right); 
   border: 2px solid;
+  margin-top: 7px;
   border-radius: 10px;
   padding: 15px 10px;
   text-align: center;
@@ -240,8 +248,8 @@ hr.dashed {
     font: 20px "Nunito Sans", sans-serif;
 }
 .btn-right:hover {
-  background-color: #ff4742; 
-  border: #ff4742;
+  background-color: var(--color-btn-right); 
+  border: var(--color-btn-right);
   color:    #ffffff;
   border: 2px solid;
 }

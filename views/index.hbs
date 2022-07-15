@@ -28,8 +28,11 @@ See your home country: <a href="/country/{{userInfo._home_country._id}}"><img sr
 
 <div class="yellow-warning">You didn't finish signing up! <br>
 <a href="/auth/signup/{{userInfo.role}}/{{userInfo._id}}">Continue</a>
-
 </div>
+
 {{/if}} {{!-- step2 --}}
 
+{{#if userInfo.org_owner}}
+eres dueño de una ORGANIZACION
+{{/if}}
 </div>

@@ -51,6 +51,10 @@ const userSchema = new Schema(
     step2: {
       type: Boolean,
       default: false
+    },
+    org_owner: {
+      type: Boolean,
+      default: false
     }
   },
   { timestamps: true }

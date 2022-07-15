@@ -5,11 +5,10 @@ const User = require("../models/User.model");
 const Organization = require("../models/Organization.model");
 //Middlewares
 const isLoggedIn = require("../middleware/isLoggedIn");
-const hasDoneStep2 = require("../middleware/hasDoneStep2");
 const {checkRole} =require("../middleware/checkRole")
 
 //COUNTRIES LIST
-router.get("/list", isLoggedIn, hasDoneStep2, (req, res, next) => {
+router.get("/list", isLoggedIn, (req, res, next) => {
   const {user} = req.session
   Country.find()
   .sort({ name: 1 })
@@ -46,7 +45,7 @@ router.get("/list", isLoggedIn, hasDoneStep2, (req, res, next) => {
 //   }
 //   catch(error){next(error)}
 // });
-router.get("/:id", isLoggedIn, hasDoneStep2, (req, res, next) => {
+router.get("/:id", isLoggedIn, (req, res, next) => {
     const {id} =req.params
     const {user} = req.session
 
