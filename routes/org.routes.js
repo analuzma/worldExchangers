@@ -6,9 +6,10 @@ const Organization = require("../models/Organization.model");
 //Middlewares
 const isLoggedIn = require("../middleware/isLoggedIn");
 const {checkRole} =require("../middleware/checkRole")
+const isLoggedOut = require("../middleware/isLoggedOut");
 //Cloudinary file upload
 const fileUploader = require("../config/cloudinary.config");
-const isLoggedOut = require("../middleware/isLoggedOut");
+const res = require("express/lib/response");
 
 //ROUTES GO HERE
 
@@ -23,15 +24,17 @@ router.get('/:id', isLoggedIn, (req,res,next)=>{
 })
 /* Update ORGANIZATION get*/
 router.get('/edit/:id',(req,res,next)=>{
-    const {user} = req.session
+       const {id} =req.params
+           const {user} = req.session
     if(!user){
         res.render('index')
         return;
     }
-    User.findById(user._id)
-    .then(userFromDB=>{
+
+    Organization.findById(id)
+    .then(org=>{
         //console.log('userFromDB',userFromDB)
-         res.render('user/edit-user',{userFromDB , user})
+         res.render('org/edit-org',{org , user})
          return;  
     })
     .catch(error=>console.log('Ha salido un error en GET edit user'))
