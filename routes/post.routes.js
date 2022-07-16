@@ -18,7 +18,7 @@ const {checkRole} =require("../middleware/checkRole")
 router.get('/', isLoggedIn, checkRole(["USER", "ORG", "ADMIN"]), (req,res,next)=>{
         const {user} =req.session
 
-    Post.find()
+    Post.find().sort({ date: -1 }).limit(20)
     .populate({path: '_author', model:User})
     .then(posts=>{
         res.render("post/forum",{posts, user})

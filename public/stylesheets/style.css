@@ -653,3 +653,24 @@ flex-direction: row;
 justify-self: baseline;
 align-items: center;
 }
+
+/* FORUM */
+.post-canvas {
+  background-color: #202a31;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+justify-content: center;
+align-items: left;
+flex-direction: column;
+margin-top: 14px;
+}
+
+textarea {
+    font: 20px "Nunito Sans", sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+    padding: 7px;
+     margin:7px 0;
+     width: 60%;
+}
