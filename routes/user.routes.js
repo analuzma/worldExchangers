@@ -53,7 +53,6 @@ router.get('/edit/:id',(req,res,next)=>{
     .catch(error=>console.log('Ha salido un error en GET edit user'))
 });
 
-
 /* Update USER post*/
 router.post( "/edit/:id", fileUploader.single("profile_pic"),  (req, res, next) => {
     let profile_pic;

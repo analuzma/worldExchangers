@@ -1,26 +1,30 @@
+<title>{{data.org_name}}</title>
+<br>
+<div class="container vertical-country">
+        <div class="country-header">
+    <img src="{{data.org_logo}}" class="profile-logo" alt=""/>
+    <h2>{{data.org_name}}</h2>
+    <a href="/country/{{data._org_country._id}}"><img src="{{data._org_country.flags.png}}" alt="" class="flag-big"></a>
+    </div>
 
-<br>
-<div class="container">
-<img src="{{data.org_logo}}" width="100" height="75" alt="">
-<br>
-<h2>{{data.org_name}}</h2><br>
-<p>Country:</p>
-<b>{{data._org_country.name.common}}</b>
-<p>Slogan:</p>
+<div class="two-column">
+<div class="left-country">
 <b>{{data.slogan}} </b>
-<p>Description:</p>
-<b>{{data.description}} </b>
+<p>{{data.description}} </p>
 <p>Website:</p>
-<b><button><a href="{{data.websiteURL}} ">Go to website </a></button></b>
+<b><a  href="{{data.websiteURL}} "><button class="a-web">Go to website </button></a></b>
 </div>
-Exchangers: <br>
-{{#each data._org_owner}}
-                {{this.username}}
-{{/each}}
-        {{#each data._students}}
-            <li>
-                {{this.username}}
-</li>
-    
-        {{/each}}
 
+ <div class="left-country">
+     {{#if data._students}}
+    <h4>Meet the latest Exchange Students in {{data.org_name}}</h4>
+   <div class="country-icons">
+        {{#each data._students}}
+            <a href="/user/{{this._id}}"><img src="{{this.profile_pic}}" alt="" class="headerIcon"></a>  
+        {{/each}}
+      </div>
+      {{/if}}
+      <h4> {{data.org_name}}'s admin</h4>
+         <div class="country-icons">
+                <a href="/org/{{data._org_owner._id}}"><img src="{{data._org_owner.profile_pic}}" alt="" class="headerIcon"></a>  
+            </div>

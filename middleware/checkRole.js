@@ -5,7 +5,7 @@ exports.checkRole = (arrayRoles) => {
     if (arrayRoles.includes(role)) {
       return next();
     } else {
-      return res.status(403).send("Not allowed.");
+      return res.redirect("/");
     }
   };
 };

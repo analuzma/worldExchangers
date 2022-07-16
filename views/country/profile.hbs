@@ -1,19 +1,15 @@
-<button><a href="/country/list">< Go back to all countries</a></button><br>
-<section class="container vertical">
-    <div>
+<title>{{data.name.common}}</title>
+
+<section class="container vertical-country">
+
         <div class="country-header">
     <img src="{{data.flags.png}}" class="flag-profile" alt=""/>
-    <h1>{{data.name.common}}</h1>
+    <h1>{{data.name.common}} <i>{{data.cca3}}</i></h1>
     </div>
-    </div>
-    <hr>
 
-
-a
-
-
-
-<h2>{{data.name.common}}</h2><br>
+{{#if data._students}}
+<div class="two-column">
+<div class="left-country">
 <p>Capital:</p>
 <b>{{data.capital}}</b>
 <p>Continent:</p>
@@ -22,21 +18,38 @@ a
 <b>{{data.region}}, {{data.subregion}} </b>
 <p>Population:</p>
 <b>{{data.population}} </b>
-</section>
-
-{{#if data._students}}
+<p>Timezone:</p>
+{{#each data.timezones}} <b>{{this}}, </b> {{/each}}
+</div>
+ <div class="left-country">
     <h4>Meet Exchange Students in {{data.name.common}}</h4>
-    <div class="landingIcons">
+   <div class="country-icons">
         {{#each data._students}}
-            <a href="/user/{{this._id}}"><img src="{{this.profile_pic}}" alt="" class="headerIcon"></a>
+            <a href="/user/{{this._id}}"><img src="{{this.profile_pic}}" alt="" class="headerIcon"></a>  
         {{/each}}
-            </div>
-
-{{/if}}
+      </div>
         {{#each data._organizations}}
             <li>
-                {{this.org_name}}
+                <a href="/org/{{this._id}}"></a>{{this.org_name}}</a>  
             </li>
         {{/each}}
+{{else}}
+    <div style="width: 50%">
+    <div class="left-country">
+<p>Capital:</p>
+<b>{{data.capital}}</b>
+<p>Continent:</p>
+<b>{{data.continents}} </b>
+<p>Region:</p>
+<b>{{data.region}}, {{data.subregion}} </b>
+<p>Population:</p>
+<b>{{data.population}} </b>
+<p>Timezone:</p>
+{{#each data.timezones}} <b>{{this}}, </b> {{/each}}
+</div>
+</div>
+{{/if}}
+</section>
+
 
         </section>
