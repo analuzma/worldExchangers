@@ -1,42 +1,44 @@
-<title>Home / World Exchangers</title>
-<div class="container">
+<title>🌍 Home / World Exchangers</title>
+<div class="container vertical-country">
 <h1>Welcome {{user.first_name}}🌍</h1>
 
 
 {{#if userInfo.org_owner}}{{!-- user owns an org --}}
 
-    You are <a href="org/{{userInfo._organization._id}}">{{userInfo._organization.org_name}}</a>'s owner:<br>
-    <img src="{{userInfo._organization.org_logo}}" alt="" class="round-icon">  
+    You are <a href="org/{{userInfo._organization._id}}">{{userInfo._organization.org_name}}</a>'s owner:<br><br>
+    <a href="/forum">💬 Forum</a><br>
+    <div class="mid">
+     <a href="/org/{{userInfo._organization._id}}"><img src="{{userInfo._organization.org_logo}}" alt="" class="profile-logo">  </a>
     <a href="/org/{{userInfo._organization._id}}"><button class="btn-home1">View</button></a>
     <a href="/org/edit/{{userInfo._organization._id}}"> <button class="btn-home1">Edit</button><br></a><br>
-
+     <a href="/org/{{userInfo._organization._id}}/list"> <button class="btn-home1">Student List</button><br></a><br>
+     <br><br>
+     
+</div>
 
 
 {{else}}{{!-- useris an student --}}
 {{#if userInfo._host_country}}
-See your org: <a href="org/{{userInfo._organization._id}}"><img src="{{userInfo._organization.org_logo}}" alt="" class="headerIcon">{{userInfo._organization.org_name}}</a><br>
-See your host country: <a href="/country/{{userInfo._host_country._id}}"><img src="{{userInfo._host_country.flags.png}}" alt="" class="flag-emoji">{{userInfo._host_country.name.common}}</a>
+    Don't miss out!
+<div>
+<a href="org/{{userInfo._organization._id}}"><img src="{{userInfo._organization.org_logo}}" alt="" class="headerIcon">  {{userInfo._organization.org_name}}</a><br><br>
+<a href="/country/{{userInfo._host_country._id}}"><img src="{{userInfo._host_country.flags.png}}" alt="" class="flag-emoji">  {{userInfo._host_country.name.common}}</a>
+{{#if userInfo._home_country}}
+<br><br>
+<a href="/country/{{userInfo._home_country._id}}"><img src="{{userInfo._home_country.flags.png}}" alt="" class="flag-emoji">  {{userInfo._home_country.name.common}}</a><br><br>
+{{/if}}
+<a href="/country/list">🌐 Search countries</a><br><br>
+<a href="/forum">💬 Forum</a><br>
+</div>
+
+    {{!-- aqui va mas texto si quiero --}}
+
 
 {{/if}}
-{{#if userInfo._home_country}}
-<br>
-See your home country: <a href="/country/{{userInfo._home_country._id}}"><img src="{{userInfo._home_country.flags.png}}" alt="" class="flag-emoji">{{userInfo._home_country.name.common}}</a>
-{{/if}}
+
 {{/if}}
 {{#if userInfo.step2}} {{!-- step2 is true --}}
 
-<br>
-<h6>Countries:</h6>
-<button><a href="/country/list/">All countries</a></button>
-
-{{#if otherUsers}}
-<h4>Meet other Exchange Students:</h4>
-    <div class="landingIcons">
-    {{#each otherUsers}}
-    <a href="/user/{{_id}}"><img src="{{profile_pic}}" alt="" class="headerIcon"></a>
-    {{/each}}
-    </div>
-{{/if}}
 {{else}} {{!-- step2 --}}
 
 <div class="yellow-warning">You didn't finish signing up! <br>

@@ -1,0 +1,17 @@
+<title>Create a post</title>
+
+<div class="container-pop">
+<form action="/forum/create" method="post">
+<h2>Create a post</h2>
+  <label> Author: <br>
+    <input class="rounded-input border-customized-input" type="text" name="_author" placeholder="{{user.username}}" value="{{user.username}}" readonly/>
+  </label><br>
+
+
+  <label> Message: <br>
+    <textarea class="rounded-input border-customized-input" name="copy" cols="30" rows="4" required> </textarea>
+  </label><br>
+
+  <button type="submit" class="btn-right"> Create post</button>
+</form>
+</div>

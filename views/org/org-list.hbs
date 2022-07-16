@@ -1,0 +1,14 @@
+
+<title>{{this.org_name}}</title>
+<br>
+<div class="container vertical-country">
+        {{!-- <div class="country-header">
+    <img src="{{this._organization.org_logo}}" class="profile-logo" alt=""/>
+    <h2>{{user.org_name}}</h2>
+    <a href="/country/{{data._org_country._id}}"><img src="{{data._org_country.flags.png}}" alt="" class="flag-big"></a>
+    </div> --}}
+<br>List of users in organization:<ol>
+    {{#each users}}
+        <li><a href="{{this._id}}">{{this.first_name}}</a></li>
+    {{/each}}</ol>
+    </div>

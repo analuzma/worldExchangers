@@ -24,6 +24,24 @@ body {
   background-color: var(--color-bg);
 }
 
+/* footer */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer,
+.push {
+  height: 50px;
+}
+
+/* links */
 
 a {
   color: var(--color-anchor);
@@ -38,6 +56,7 @@ a:hover{
 
 .container {
 width: 50%;
+min-width: 50%;
 margin-left: auto;
 margin-right: auto;
 }
@@ -74,7 +93,6 @@ margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .flex-container {
@@ -559,5 +577,100 @@ flex-direction: column;
   justify-content: space-around;
   background-color: var(--color-bg);
   border-radius: 10px;
+  padding: 10px 10px;
+}
+.vertical-country {
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+border: white solid 4px;
+background-color: var(--color-bg-secondary);
+border-radius: 10px;
+padding: 0px 14px 14px 14px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.two-column {
+  display: flex;
+  flex-direction: row;
+}
+
+.country-icons {
+display: flex;
+flex-direction: row;
+}
+.left-country {
+  width: 50%;
+  display: flex;
+  flex-direction: column; 
+  justify-content: left;
+  padding: 14px;
+}
+
+
+
+/* ORG */
+
+.a-web{
+  background-color: #2B3743; 
+  border: #44A3AD;
+  border: 3px solid;
+  border-radius: 10px;
+  color: #44A3AD;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+    font: 20px "Nunito Sans", sans-serif;
+}
+
+.a-web:hover{
+  background-color: var(--color-btn-right); 
+  border: white;
+  border: 3px solid;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+    font: 20px "Nunito Sans", sans-serif;
+}
+/* 
+ORG USER HOME */
+.mid{
+display: flex;
+flex-direction: row;
+justify-self: baseline;
+align-items: center;
+}
+
+/* FORUM */
+.post-canvas {
+  background-color: #202a31;
+  border-radius: 10px;
   padding: 10px;
+  display: flex;
+justify-content: center;
+align-items: left;
+flex-direction: column;
+margin-top: 14px;
+}
+
+textarea {
+    font: 20px "Nunito Sans", sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+    padding: 7px;
+     margin:7px 0;
+     width: 60%;
 }

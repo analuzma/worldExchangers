@@ -32,10 +32,9 @@ async (req, res, next) => {
   try {
     const {user} = req.session
     const userInfo = await User.findById(user).populate('_host_country _organization _home_country')
-    const otherUsers = await User.find().sort("createdAt: 1")
-  .limit(8).populate("_host_country")
 
-    res.render("index", {userInfo, otherUsers, user})
+
+    res.render("index", {userInfo, user})
   }
   catch(error){next(error)}
 });

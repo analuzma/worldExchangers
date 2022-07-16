@@ -8,7 +8,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const {checkRole} =require("../middleware/checkRole")
 
 //COUNTRIES LIST
-router.get("/list", isLoggedIn, (req, res, next) => {
+router.get("/list", isLoggedIn, checkRole(["USER", "ADMIN"]), (req, res, next) => {
   const {user} = req.session
   Country.find()
   .sort({ name: 1 })
@@ -48,7 +48,7 @@ router.get("/list", isLoggedIn, (req, res, next) => {
 // });
 
 //Read COUNTRY get /profile
-router.get("/:id", isLoggedIn, (req, res, next) => {
+router.get("/:id", isLoggedIn, checkRole(["USER", "ADMIN"]),  (req, res, next) => {
     const {id} =req.params
     const {user} = req.session
 

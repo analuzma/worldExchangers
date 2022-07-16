@@ -1,0 +1,9 @@
+<title>List posts</title>
+<h1>Comments</h1>
+
+{{#each Comments}}
+  <div>
+    <h3>Author: {{_author.name}}</h3>
+    <p>{{copy}}</p>
+  </div>
+{{/each}}

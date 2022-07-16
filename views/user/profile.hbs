@@ -6,12 +6,11 @@
     <div>
     <div class="profile-header"><img src="{{data.profile_pic}}" class="profile-logo" alt=""/>
     <h1>{{data.username}}</h1>
-        <a href="/country/{{_organization._org_country._id}}">  <img src="{{data._organization._org_country.flags.png}}" class="flag-big" alt=""> </a> 
-      
-      <a href="/country/{{data._host_country._id}}">  <img src="{{data._host_country.flags.png}}" class="flag-big" alt=""> </a> 
+        
+      <a href="/org/{{data._organization._id}}">  <img src="{{data._organization.org_logo}}" class="headerIcon" alt=""> </a> 
     </div>
     <hr class="dashed">
-      <p><b>{{data.first_name}}</b> is the admin for <b><a href="/org/{{data._organization._id}}">{{data._organization.org_name}}</a></b> located in {{data._organization._org_country._id.name.common}}</p>
+      <p style="width: 500px;"><b>{{data.first_name}}</b> is the admin for <b><a href="/org/{{data._organization._id}}">{{data._organization.org_name}}</a></b></p>
     </div>
     {{else}}  {{!-- is a student --}}
 <div>

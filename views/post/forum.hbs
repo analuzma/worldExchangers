@@ -1,0 +1,20 @@
+<title>💬 Forum</title>
+
+<div class="container vertical-country">
+     <p>Newest posts to oldest</p>
+    {{#if user}}
+        {{#each posts}}
+        <div class="post-canvas">
+            <a href="user/{{_author.id}}"> {{#if _author.org_owner}}🌐{{/if}} {{_author.username}}:</a>
+            {{this.copy}}
+        </div>
+      
+        {{/each}}
+    {{else}}
+    no posts
+    {{/if}}
+  
+</div>
+<div class="container">
+    <a href="/forum/create"><button  class="btn-right" >Post a comment</button></a>
+    </div>
