@@ -1,18 +1,36 @@
-<title>Edit / {{username}}</title>
+<title>Edit / {{user.username}}</title>
 
-{{! cuando mando archvios es necesario agregar la propiedad enctype="multipart" }}
+      <img class="postLogo" src="{{user.profile_pic}}" alt="">
+<div class="container-pop">
+   <h2>Edit: {{user.username}}</h2>
+   
+<form action="/user/edit/{{user._id}}" method="POST" enctype="multipart/form-data">
+                  <label>First name: <br>
+            <input type="text" class="rounded-input border-customized-input"  name="first_name" placeholder="{{user.first_name}}" value="{{user.first_name}}"></input>
+         </label>
+      <br>
+            <label>Username: <br>
+            <input type="text" name="username" class="rounded-input border-customized-input" placeholder="{{user.username}}" value="{{user.username}}" readonly></input>
+         </label>
+      <br>
+                  <label>Email: <br>
+            <input type="text" name="email" placeholder="{{user.email}}" value="{{user.email}}"  class="rounded-input border-customized-input" readonly></input>
+         </label>
+      <br>
+      <label for="">Profile picture: <br>
+        <input type="file" name="profile_pic" placeholder="{{user.profile_pic}}" value="{{user.profile_pic}}" class="rounded-input border-customized-input"/></label> 
 
-<form action="/user/edit-user" method="post" enctype="multipart/form-data">
-  <label for="">First Name</label>
-  <input type="text" name="first_name" placeholder="{{first_name}}" value="{{first_name}}"/>
+      <br>     
+      <button type="submit"  class="btn-right" >Update</button>
+   </form>
 
-  <label for="">Username</label>
-  <input type="text" name="username" placeholder="{{username}}" value="{{username}}" readonly/>
+{{#if errorMessage}}
+   {{errorMessage}}
+{{/if}}
 
-  <label for="">Email</label>
-  <input type="text" name="email" placeholder="{{email}}" value="{{email}}" readonly/>
+</div>
 
-  <label for="">Profile Pic</label>
-  <input type="file" name="profile_pic" placeholder="{{profile_pic}}"/>
-  <button type="submit">Send</button>
-</form>
+
+<div class="vertical-div-btn ">
+   <a href="/user/delete/{{user._id}}"><button class="btn-delete">Delete account</button></a>
+</div>

@@ -1,5 +1,5 @@
 <title>Searching countries</title>
-<main>
+{{!-- <main>
     <ul>
         {{#each countries}}
             <li>
@@ -7,4 +7,17 @@
             <br>
         {{/each}}
     </ul>
-</main>
+</main> --}}
+<div class="container vertical">
+
+<main class="cards">
+            {{#each countries}}
+    <a href="/country/{{id}}">
+  <article class="card">
+    <img src="{{flags.png}}" alt="">
+    <div class="text">
+      <h3>{{name.common}}</h3>
+    </div>
+  </article></a>
+          {{/each}}
+  </main></div>

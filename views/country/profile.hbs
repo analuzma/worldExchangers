@@ -1,7 +1,18 @@
 <button><a href="/country/list">< Go back to all countries</a></button><br>
-<div class="container">
-<img src="{{data.flags.png}}" width="100" height="75" alt="">
-<br>
+<section class="container vertical">
+    <div>
+        <div class="country-header">
+    <img src="{{data.flags.png}}" class="flag-profile" alt=""/>
+    <h1>{{data.name.common}}</h1>
+    </div>
+    </div>
+    <hr>
+
+
+a
+
+
+
 <h2>{{data.name.common}}</h2><br>
 <p>Capital:</p>
 <b>{{data.capital}}</b>
@@ -11,12 +22,21 @@
 <b>{{data.region}}, {{data.subregion}} </b>
 <p>Population:</p>
 <b>{{data.population}} </b>
-</div>
+</section>
 
+{{#if data._students}}
+    <h4>Meet Exchange Students in {{data.name.common}}</h4>
+    <div class="landingIcons">
         {{#each data._students}}
+            <a href="/user/{{this._id}}"><img src="{{this.profile_pic}}" alt="" class="headerIcon"></a>
+        {{/each}}
+            </div>
+
+{{/if}}
+        {{#each data._organizations}}
             <li>
-                {{this.username}}
-</li>
-    
+                {{this.org_name}}
+            </li>
         {{/each}}
 
+        </section>

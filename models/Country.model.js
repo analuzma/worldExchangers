@@ -18,7 +18,7 @@ const countrySchema = new Schema(
     }],
     _organizations: [{
       type: Schema.Types.ObjectId,
-      ref: "User"
+      ref: "Organization"
     }]
   },
     {

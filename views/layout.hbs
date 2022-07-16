@@ -7,20 +7,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500;600;800&display=swap" rel="stylesheet">
       <link rel="icon" type="image/x-icon" href="/images/we_logo_round_mxkchc.png">
     <link rel="stylesheet" href="/stylesheets/style.css">
-         
   </head>
   <body>
 
 <header>
     <nav class="navbar">
-        <div class="container navbar-content">        {{#if user}}
-    <div> <a href="/"><img src="/images/we_logo_round_mxkchc.png" widgth="50" height="50" alt=""></a></div>
-    <div class="headerIcons"></div>
+        <div class="container navbar-content ">        
+    {{#if user}}
+    <div> <a href="/"><img class="header-logo" src="/images/we_logo_round_mxkchc.png" width="50" height="50" alt=""></a></div>
+<div class="header-icons">
 
-        <ul>
-          <li><button><a href="/user/{{user._id}}">My Profile</a></button></li>
-          <li><button><a href="/auth/logout">Log Out</a></button></li>
-        </ul>        
+              <a href="/user/{{user._id}}">  <i class="fa-solid fa-circle-user"></i>  {{user.username}}</a> 
+   
+        </div>   
+
+<div class="dropdown">
+  <button class="dropbtn">Settings</button>
+  <div class="dropdown-content">
+    <a href="/user/edit/{{user._id}}">Edit Profile</a>
+
+    <a href="/auth/logout" id="logout"> Log Out</a>
+  </div>
+</div>
+
+
         {{/if}}
 
         </div>
@@ -31,7 +41,7 @@
 {{{ body }}}
 
     <script src="/js/script.js"></script>
-
+<script src="https://kit.fontawesome.com/f5ebd59c19.js" crossorigin="anonymous"></script>
   </body>
 
 </html>

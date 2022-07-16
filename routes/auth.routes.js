@@ -16,9 +16,8 @@ const Country = require("../models/Country.model");
 // Middlewares
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
-const hasDoneStep2 = require("../middleware/hasDoneStep2");
 const {checkRole} =require("../middleware/checkRole")
-
+  
 /////////////////////////////////////**ROUTES**/
 
 /////////SIGN UP GET
@@ -143,39 +142,47 @@ router.post("/signup", isLoggedOut, (req, res) => {
 router.post('/signup/user/:id', isLoggedIn, async (req,res,next)=>{
     
   const {id} = req.params
+
   const {_home_country, _host_country, _organization} = req.body;
-
+      const {user}=req.session
   try{
-    const user2 = await User.findByIdAndUpdate(id,{_home_country, _host_country, _organization, step2:true}, {new:true})
-    
-    const organization = await Organization.findByIdAndUpdate({_id: _organization}, {$push: {'_students': id}})
 
-    const country = await Country.findByIdAndUpdate({_id: _host_country}, {$push: {'_students': id} })    
-    
-    res.redirect(`/user/${id}`)
-  }catch(error){
+    //current user is updated to have selected home country, host country and organizatiton
+    const user2 = await User.findByIdAndUpdate(id,{_home_country, _host_country, _organization, step2:true}, {new:true}).then((updatedUser) => {
+        //overwrite current req.session
+        req.session.user = updatedUser})
+        //current user is added to selected organization
+    const organization = await Organization.findByIdAndUpdate({_id: _organization}, {$push: {'_students': id}})
+    //current user is added to selected host contry
+    const country = await Country.findByIdAndUpdate({_id: _host_country}, {$push: {'_students': id} })   
+    console.log(user)
+  res.redirect("/")
+  } catch(error){
     res.status(500).json({ error });
     console.log(error)}
 });
 
-
-
 //post SIGN UP Step #2 ORGANIZATION
-// router.post('/signup/org/:id', isLoggedIn, async (req,res,next)=>{
+router.post('/signup/org/:id', isLoggedIn, async (req,res,next)=>{
 
-//   const {id} = req.params;
-//   const {_org_country, org_name, slogan, description, websiteURL} = req.body;
-//   try{
-//     const organization = await await Organization.create({_org_country, org_name, slogan, description, websiteURL, _org_owner:id}).populate("_org_country, org_name, slogan, description, websiteURL")
+  const {id} = req.params;
+  const {_org_country, org_name, slogan, description, websiteURL} = req.body;
+  try{
+    // organization is created with req.body and adds org owner
+    const organization = await Organization.create({_org_country, org_name, slogan, description, websiteURL, _org_owner:id})
+    console.log("organzation:", organization)
+    // org is added to User(_organization) and step2:true
+    const user2 = await User.findByIdAndUpdate(id, { $set: {'_organization': organization}, step2: true, org_owner: true }).then((updatedUser) => {
+        //overwrite current req.session
+        req.session.user = updatedUser})
+   // created organization is added to country
+    const country = await Country.findByIdAndUpdate({_id: _org_country}, {$push: {'_organizations': _org_country} })   
+        console.log("organzation:", country)
 
-//     const user = await User.findByIdAndUpdate(id,{$push: {_}}, step2:true}, {new:true}).populate("_home_country _host_country _organization")
-//     const user = await User.findByIdAndUpdate(id, { $set: { _organization: organization._id  }, step2: true }, {new:true})
-//     .populate("_organization")
-//     req.session.user=user
-//     res.redirect("/")
-//   }catch(error){res.status(500).json({ error });
-//     console.log(error)}
-// })
+    res.redirect("/")
+  }catch(error){res.status(500).json({ error });
+    console.log(error)}
+})
 
 //////////LOG IN
 //get LOG IN
@@ -220,8 +227,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        //HERE I COULD ADD REDIRECTS DEPENDING ON USER ROLE
-        return res.redirect("/");
+        res.redirect("/");
       });
     })
 

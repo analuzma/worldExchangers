@@ -1,0 +1,40 @@
+<title>Edit / {{org.org_name}}</title>
+
+      <img class="postLogo" src="{{org.org_logo}}" alt="">
+<div class="container-pop">
+   <h4>Edit: {{org.org_name}}</h4>
+   
+<form action="/org/edit/{{org._id}}" method="POST" enctype="multipart/form-data">
+                  <label>Organization name: <br>
+            <input type="text" class="rounded-input border-customized-input"  name="org_name" placeholder="{{org.org_name}}" value="{{org.org_name}}"></input>
+         </label>
+      <br>
+       <label for="">Logo: <br>
+        <input type="file" name="org_logo" placeholder="{{org.org_logo}}" value="{{org.org_logo}}" class="rounded-input border-customized-input"/></label> 
+      <br>     
+            <label>Slogan: <br>
+            <input type="text" class="rounded-input border-customized-input"  name="slogan" placeholder="{{org.slogan}}" value="{{org.slogan}}"></input>
+         </label>
+      <br>
+                 <label>Description: <br>
+            <input type="text" class="big-input"  name="description" placeholder="{{org.description}}" value="{{org.description}}"></input>
+         </label>
+      <br>
+            <label>Official website URL: <br>
+            <input type="string" name="websiteURL" value="{{org.websiteURL}}" placeholder="{{org.websiteURL}}" class="rounded-input border-customized-input" ></input>
+         </label>
+      <br>
+
+      <button type="submit"  class="btn-right" >Update</button>
+   </form> 
+
+{{#if errorMessage}}
+   {{errorMessage}}
+{{/if}}
+
+</div>
+
+
+   {{!-- <div class="vertical-div-btn ">
+      <a href="/org/delete/{{org._id}}"><button class="btn-delete">Delete organization</button></a>
+   </div> --}}

@@ -1,15 +1,34 @@
 <title>Profile / {{data.username}}</title>
-<br>
-<img src="{{data.profile_pic}}" alt="" width="100" height="100" style="border-radius: 50%"/>
-<h1>{{data.username}}</h1>
-<div>
-  <p>Nombre: {{data.first_name}}</p>
-  <p>Email: {{data.email}}</p>
-  <p>Username: {{data.username}}</p>
-  <p>Host Country: {{data._host_country.name.common}} <img src="{{data._host_country.flags.png}}" alt=""></p>
-  <p>WILL DELETE Role: {{data.role}}</p>
-  <p>My organization:</p>{{data._organization.org_name}}
-  {{data._organization.slogan}}
-</div>
+<section class="container vertical">
 
-<button><a href="/user/edit-user">Edit my Profile</a></button>
+{{#if data.step2}} 
+{{#if data.org_owner}}  {{!-- is a org owner --}}
+    <div>
+    <div class="profile-header"><img src="{{data.profile_pic}}" class="profile-logo" alt=""/>
+    <h1>{{data.username}}</h1>
+        <a href="/country/{{_organization._org_country._id}}">  <img src="{{data._organization._org_country.flags.png}}" class="flag-big" alt=""> </a> 
+      
+      <a href="/country/{{data._host_country._id}}">  <img src="{{data._host_country.flags.png}}" class="flag-big" alt=""> </a> 
+    </div>
+    <hr class="dashed">
+      <p><b>{{data.first_name}}</b> is the admin for <b><a href="/org/{{data._organization._id}}">{{data._organization.org_name}}</a></b> located in {{data._organization._org_country._id.name.common}}</p>
+    </div>
+    {{else}}  {{!-- is a student --}}
+<div>
+    <div class="profile-header"><img src="{{data.profile_pic}}" class="profile-logo" alt=""/>
+    <h1>{{data.username}}</h1>
+        <a href="/country/{{data._home_country._id}}">  <img src="{{data._home_country.flags.png}}" class="flag-big" alt=""> </a> 
+      ➡️
+      <a href="/country/{{data._host_country._id}}">  <img src="{{data._host_country.flags.png}}" class="flag-big" alt=""> </a> 
+    </div>
+    <hr class="dashed">
+      <p><b>{{data.first_name}}</b> is an exchange student from <b><a href="/country/{{data._home_country._id}}">{{data._home_country.name.common}}</a></b> to <b><a href="/country/{{data._host_country._id}}">{{data._host_country.name.common}} </a></b> participating with <b><a href="/org/{{data._organization._id}}">{{data._organization.org_name}}</a></b>.</p>
+    </div>
+    {{/ if}}
+
+{{else}}
+<div class="yellow-warning">You didn't finish signing up! <br>
+<a href="/auth/signup/{{data.role}}/{{data._id}}">Continue</a>
+</div>
+{{/if}}
+</section>

@@ -1,38 +1,45 @@
 <title>Sign Up / Step 2 / World Exchangers</title>
-<form action="/auth/signup/user/{{user._id}}" method="POST">
-<br>
+      <img class="postLogo" src="/images/we_logo_round_mxkchc.png" alt="">
+<div class="container-pop">
    <h2>Sign Up</h2>
    <h3>Step 2 out of 2</h3>
-   <h4>Exchange Student</h4>
+
+<form action="/auth/signup/user/{{user._id}}" method="POST">
+   <h4>🙌 You are half way there! We are almost done.</h4>
+
    <form>
-      <label>What is your Home Country?
-         <select name="_home_country">
+      <label>What is your Home Country?<br>
+         <select   class="rounded-input border-customized-input" name="_home_country">
+            <option disabled selected value> -- select an option -- </option>
             {{#each countries}}
+      
             <option value="{{_id}}">{{name.common}}</option>
             {{/each}}
          </select>
       </label>
       <br> 
-      <label>What is your Host Country?
-         <select name="_host_country">
+      <label>What is your Host Country?<br>
+         <select  class="rounded-input border-customized-input" name="_host_country">
+                  <option disabled selected value> -- select an option -- </option>
             {{#each countries}}
             <option value="{{_id}}">{{name.common}}</option>
             {{/each}}
          </select>
       </label>
       <br>
-      <label>What is your Exchange Organization?
-         <select name="_organization">
+      <label>What is your Exchange Organization?<br>
+         <select  class="rounded-input border-customized-input" name="_organization">
+            <option disabled selected value> -- select an option -- </option>
             {{#each organizations}}
             <option value="{{_id}}">{{org_name}}</option>
             {{/each}}
          </select>
       </label>
-      <br>       
-      <button type="submit">Sign Up</button>
+      <br> <br>  
+      <button class="btn-right" type="submit">Sign Up</button>
    </form>
 
 
 {{#if errorMessage}}
    {{errorMessage}}
-{{/if}}
+{{/if}}</div>

@@ -1,19 +1,21 @@
 <title>Login / World Exchangers</title>
-
+      <img class="postLogo" src="/images/we_logo_round_mxkchc.png" alt="">
+<div class="container-pop">
 <form action="/auth/login" method="POST">
-<br>
-      <label> Username
-      <input type="text" name="username">
+<br><br>
+      <label> Username <br>
+      <input    class="rounded-input border-customized-input" type="text" name="username">
    </label><br>
-   <label> Password
-      <input type="password" name="password">
+   <label> Password <br>
+      <input    class="rounded-input border-customized-input" type="password" name="password">
    </label>
 <br>
-   <button type="submit">Submit</button>
+   <button class="btn-right" type="submit">Submit</button>
 </form>
 
-<a href="/auth/signUp">Sign Up</a>
+Dont't have an account? <a href="/auth/signUp">Sign up</a>
 
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
+</div>

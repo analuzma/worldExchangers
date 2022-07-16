@@ -1,30 +1,31 @@
 <title>Sign Up / Step 1 / World Exchangers</title>
-<div class="container">
-<form action="/auth/signup" method="POST">
-<br>
+      <img class="postLogo" src="/images/we_logo_round_mxkchc.png" alt="">
+<div class="container-pop">
    <h2>Sign Up</h2>
    <h3>Step 1 out of 2</h3>
+<form action="/auth/signup" method="POST">
       <label for="role"> Are you an exchange student or organization?
-      <select name="role" class="form-label">
+      <select class="rounded-input border-customized-input" name="role" class="form-label">
          <option value="USER">Student</option>
          <option value="ORG">Organization</option>
       </select>
+      <hr class="dashed">
    </label><br>
-   <label> First Name
-      <input type="text" name="first_name" required>
+   <label> First Name<br>
+      <input type="text" class="rounded-input border-customized-input" name="first_name" required>
    </label><br>
-      <label> Username
-      <input type="text" name="username">
+      <label> Username<br>
+      <input class="rounded-input border-customized-input" type="text" name="username">
    </label><br>
-      <label>Email
-    <input type="email" name="email" />
+      <label>Email<br>
+    <input class="rounded-input border-customized-input" type="email" name="email" />
   </label><br>
 
-      <label> Password
-      <input type="password" name="password">
+      <label> Password<br>
+      <input class="rounded-input border-customized-input" type="password" name="password">
    </label>
 <br>
-   <button type="submit">Next</button>
+   <button class="btn-right" type="submit">Next</button>
 </form>
 
 {{#if errorMessage}}
