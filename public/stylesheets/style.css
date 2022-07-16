@@ -51,7 +51,7 @@ margin-right: auto;
 
 /* LANDING */
 .homeBg {
-  background:  url(/images/bgflags.png) no-repeat center center fixed; 
+  background:  url(https://res.cloudinary.com/dtdqsyryk/image/upload/v1657949667/edit-user-project/bgflags_xdd2mt.png) no-repeat center center fixed; 
   background-blend-mode: multiply;
   background-color: var(--color-bg);
   -webkit-background-size: cover;
@@ -228,6 +228,12 @@ input[type=password],  input[type=file], input, select{
 .border-customized-input {
     border-radius:10px;
    border: 2px solid #eee;
+   min-width: 250px;
+}
+.big-input {
+      border-radius:10px;
+   border: 2px solid #eee;
+  min-width: 400px;
 }
 hr.dashed {
   border-top: 2px dashed var(--color-bg);
@@ -502,4 +508,56 @@ display: flex;
 justify-content: right;
 align-items: center;
 flex-direction: column;
+}
+
+/* COUNTRIES CARDS */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .card {
+    flex: 0 0 100px;
+    width: 175px;
+    margin: 10px;
+      border: black 3px solid;
+  border-radius: 10px;
+  background-color: var(--color-bg);
+  } 
+    .card:hover {
+    flex: 0 0 100px;
+    width: 175px;
+    margin: 10px;
+      border: #eee 3px solid;
+  border-radius: 5px;
+  background-color: var(--color-bg);
+  color: white;
+  } 
+  .card img {
+    max-width: 100%;
+  }
+  .card .text {
+    padding: 0 20px 20px;
+    font-weight: 300;
+    
+  }
+  
+  /* COUNTRY PROFILE */
+.flag-profile {
+  width: 10rem;
+  height: 5rem;
+  border: #eee 2px solid;
+  border-radius: 5px;
+}
+
+.country-header {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  width: 100%;
+  justify-content: space-around;
+  background-color: var(--color-bg);
+  border-radius: 10px;
+  padding: 10px;
 }

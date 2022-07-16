@@ -4,10 +4,11 @@
 
 
 {{#if userInfo.org_owner}}{{!-- user owns an org --}}
-You are <a href="org/{{userInfo._organization._id}}">{{userInfo._organization.org_name}}</a>'s owner:<br>
-<img src="{{userInfo._organization.org_logo}}" alt="" class="round-icon">  
-<a href="/org/{{userInfo._organization._id}}"><button class="btn-home1">View</button></a>
-<a href="/org/edit/{{userInfo._organization._id}}"> <button class="btn-home1">Edit</button><br></a><br>
+
+    You are <a href="org/{{userInfo._organization._id}}">{{userInfo._organization.org_name}}</a>'s owner:<br>
+    <img src="{{userInfo._organization.org_logo}}" alt="" class="round-icon">  
+    <a href="/org/{{userInfo._organization._id}}"><button class="btn-home1">View</button></a>
+    <a href="/org/edit/{{userInfo._organization._id}}"> <button class="btn-home1">Edit</button><br></a><br>
 
 
 

@@ -79,7 +79,7 @@ router.post( "/edit/:id", fileUploader.single("profile_pic"),  (req, res, next) 
       });
   }
 );
-
+/* Delete USER get*/
 router.get('/delete/:_id', (req,res,next)=>{
     const {_id} = req.params;
 

@@ -16,6 +16,10 @@
             <input type="text" class="rounded-input border-customized-input"  name="slogan" placeholder="{{org.slogan}}" value="{{org.slogan}}"></input>
          </label>
       <br>
+                 <label>Description: <br>
+            <input type="text" class="big-input"  name="description" placeholder="{{org.description}}" value="{{org.description}}"></input>
+         </label>
+      <br>
             <label>Official website URL: <br>
             <input type="string" name="websiteURL" value="{{org.websiteURL}}" placeholder="{{org.websiteURL}}" class="rounded-input border-customized-input" ></input>
          </label>
@@ -31,6 +35,6 @@
 </div>
 
 
-<div class="vertical-div-btn ">
-   <a href="/org/delete/{{org._id}}"><button class="btn-delete">Delete organization</button></a>
-</div>
+   {{!-- <div class="vertical-div-btn ">
+      <a href="/org/delete/{{org._id}}"><button class="btn-delete">Delete organization</button></a>
+   </div> --}}

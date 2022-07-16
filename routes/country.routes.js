@@ -21,6 +21,7 @@ router.get("/list", isLoggedIn, (req, res, next) => {
   })
 });
 
+
 //COUNTRY PROFILE by id
 // router.get("/:id",isLoggedIn, hasDoneStep2, (req, res, next) => {
 //   const {id} = req.params;
@@ -45,11 +46,14 @@ router.get("/list", isLoggedIn, (req, res, next) => {
 //   }
 //   catch(error){next(error)}
 // });
+
+//Read COUNTRY get /profile
 router.get("/:id", isLoggedIn, (req, res, next) => {
     const {id} =req.params
     const {user} = req.session
 
-  Country.findById(id).populate('_students').then((data)=>{
+  Country.findById(id).populate("_students _organizations").then((data)=>{
+    console.log(data)
 res.render("country/profile", {user, data});
   })
 })
