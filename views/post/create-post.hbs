@@ -1,0 +1,15 @@
+
+<h2>Post a comment</h2>
+
+<form action="/forum/create" method="post">
+
+  <label> Author:
+    <input type="text" name="_author" placeholder="{{user.username}}" value="{{user.username}}" readonly/>
+  </label>
+
+  <label> Message:
+    <textarea name="copy" cols="30" rows="4" required> </textarea>
+  </label>
+
+  <button type="submit"> Create </button>
+</form>

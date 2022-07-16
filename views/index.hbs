@@ -6,11 +6,14 @@
 {{#if userInfo.org_owner}}{{!-- user owns an org --}}
 
     You are <a href="org/{{userInfo._organization._id}}">{{userInfo._organization.org_name}}</a>'s owner:<br><br>
+    <a href="/forum">💬 Forum</a><br>
     <div class="mid">
      <a href="/org/{{userInfo._organization._id}}"><img src="{{userInfo._organization.org_logo}}" alt="" class="profile-logo">  </a>
     <a href="/org/{{userInfo._organization._id}}"><button class="btn-home1">View</button></a>
     <a href="/org/edit/{{userInfo._organization._id}}"> <button class="btn-home1">Edit</button><br></a><br>
      <a href="/org/{{userInfo._organization._id}}/list"> <button class="btn-home1">Student List</button><br></a><br>
+     <br><br>
+     
 </div>
 
 
@@ -24,7 +27,8 @@
 <br><br>
 <a href="/country/{{userInfo._home_country._id}}"><img src="{{userInfo._home_country.flags.png}}" alt="" class="flag-emoji">  {{userInfo._home_country.name.common}}</a><br><br>
 {{/if}}
-<a href="/country/list">🌐 Search countries</a><br>
+<a href="/country/list">🌐 Search countries</a><br><br>
+<a href="/forum">💬 Forum</a><br>
 </div>
 
     {{!-- aqui va mas texto si quiero --}}

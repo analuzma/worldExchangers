@@ -1,0 +1,16 @@
+<title>Forum</title>
+
+<div class="container vertical-country">
+    {{#if user}}
+        {{#each posts}}
+        <div class="post-canvas">
+            <a href="user/{{_author.id}}">{{_author.username}}</a>: <br>
+            {{this.copy}}
+        </div>
+
+            <hr>
+        {{/each}}
+    {{else}}
+    no posts
+    {{/if}}
+</div>
