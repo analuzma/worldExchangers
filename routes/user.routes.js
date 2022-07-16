@@ -29,14 +29,15 @@ const saltRounds = 10;
 //   res.render("user/profile", user);
 // });
 
-/*  USER get working great */
+/*  Read USER get*/
 router.get("/:id", isLoggedIn, (req, res, next) => {
     const {id} =req.params
     const {user} =req.session
-  User.findById(id).populate('_organization _host_country _home_country').then((data)=>{res.render("user/profile", {user, data});})
+  User.findById(id).populate('_organization _host_country _home_country')
+  .then((data)=>{res.render("user/profile", {user, data});})
   })
 
-/* Edit USER get*/
+/* Update USER get*/
 router.get('/edit/:id',(req,res,next)=>{
     const {user} = req.session
     if(!user){
@@ -53,7 +54,7 @@ router.get('/edit/:id',(req,res,next)=>{
 });
 
 
-/* Edit USER post*/
+/* Update USER post*/
 router.post( "/edit/:id", fileUploader.single("profile_pic"),  (req, res, next) => {
     let profile_pic;
     if (req.file) {
@@ -79,16 +80,26 @@ router.post( "/edit/:id", fileUploader.single("profile_pic"),  (req, res, next) 
   }
 );
 
-router.delete("/user/delete/:id", checkRole(["USER","ORG","ADMIN"]), async (res,req,next) =>{
-  const id = req.params.id;
-  try{
-    const user = await User.findByIdAndDelete(id)
-   return res.redirect("/")
-  }
-  catch(error){next(error)}
-});
+router.get('/delete/:_id', (req,res,next)=>{
+    const {_id} = req.params;
 
-
+    User.findById(_id)
+    .then(user=>{
+        User.findByIdAndDelete(user._id)
+            .then((deleted)=>{
+                      req.session.user = deleted;
+    req.session.destroy((err) => {
+    if (err) {
+      return res
+        .status(500)
+        .render("auth/logout", { errorMessage: err.message });
+    }
+        res.redirect("/");
+            })
+    })
+    .catch(error=>console.log('error',error))
+})
+})
 //   try {
 // router.get("/all", checkRole["ADMIN"], async (res,req,next)=>{
 //   try {

@@ -12,7 +12,7 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 
 //ROUTES GO HERE
 
-
+/* Read ORGANIZATION get*/
 router.get('/:id', isLoggedIn, (req,res,next)=>{
     const {id} =req.params
     const {user} = req.session
@@ -21,6 +21,21 @@ router.get('/:id', isLoggedIn, (req,res,next)=>{
     res.render("org/my-org", {user, data});
 })
 })
+/* Update ORGANIZATION get*/
+router.get('/edit/:id',(req,res,next)=>{
+    const {user} = req.session
+    if(!user){
+        res.render('index')
+        return;
+    }
+    User.findById(user._id)
+    .then(userFromDB=>{
+        //console.log('userFromDB',userFromDB)
+         res.render('user/edit-user',{userFromDB , user})
+         return;  
+    })
+    .catch(error=>console.log('Ha salido un error en GET edit user'))
+});
 
 
 // //EXPORTS

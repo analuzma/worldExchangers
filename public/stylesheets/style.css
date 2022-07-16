@@ -104,7 +104,7 @@ margin-right: auto;
 }
 
 .whiteBG {
-background-color: rgba(255, 255, 255, 0.747);
+background-color: rgba(255, 255, 255, 0.877);
 color: black;
 border-radius: 10px;
 padding: 14px;
@@ -129,12 +129,13 @@ flex-direction: column;
   font-size: 20px;
   vertical-align: middle;
   cursor: pointer;
+    font: 20px "Nunito Sans", sans-serif;
   box-shadow: 1px 2px 4px rgba(0,0,0,.1);
 }
 
 .btnCTA:hover{
-    color: #ff4742;
-    background-color: #ffffff; 
+  color: #ff4742;
+  background-color: #ffffff; 
   border: #ff4742;
   border: 4px solid;
   box-shadow: 1px 2px 4px rgba(0,0,0,.1);
@@ -240,10 +241,10 @@ hr.dashed {
   margin-top: 7px;
   border-radius: 10px;
   padding: 15px 10px;
+  font: 20px "Nunito Sans", sans-serif;
   text-align: center;
   text-decoration: none;
   float: right;
-    font: 20px "Nunito Sans", sans-serif;
       cursor: pointer;
 }
 .btn-right:hover {
@@ -258,6 +259,8 @@ hr.dashed {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .header-icons {
@@ -273,11 +276,77 @@ hr.dashed {
 }
 .header-icons > li{
   float: right;
+
 }
 
 .header-icons:hover .fa-solid:before{
-  color:var(--color-btn-right);
+  color:var(--color-text);
   opacity:0.4;
+}
+
+.header-logo {
+  display: flex;
+  width: 50;
+  height: 50;
+  border: black solid 4px;
+  border-radius: 50%;
+  box-shadow: 1px 2px 4px rgba(0,0,0,.1);
+  transition-delay: 30ms;
+}
+.header-logo:hover{
+    border: white solid 4px;
+}
+/* Dropdown Button */
+.dropbtn {
+  background-color: var(--color-bg-secondary); 
+  border:  var(--color-btn-right); 
+  color:    var(--color-btn-right); 
+  border: 2px solid;
+  margin-top: 7px;
+  border-radius: 10px;
+  padding: 10px 5px;
+  font: 20px "Nunito Sans", sans-serif;
+}
+
+/*  The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+    border-radius: 10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+    border-radius: 10px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;  border-radius: 10px;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn { background-color: var(--color-btn-right); 
+  border:  var(--color-btn-right); 
+  color:    var(--color-text);  border: 2px solid; }
+
+#logout:hover {
+color: #ff4742;
 }
 
 /* HOME */
@@ -306,6 +375,56 @@ flex-direction: column;
   height: 1.2rem;
   border: var(--color-anchor-hover) 2px solid;
   border-radius: 5px;
+}
+.round-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: rgb(15, 15, 15) 2px solid;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.round-icon:hover {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: rgb(255, 255, 255) 2px solid;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.btn-home1{
+    border: #202d36;
+  border: 2px solid;
+  background-color: #ffffff;
+  color: #202d36;
+  border-radius: 10px;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 18px;
+  font:  "Nunito Sans", sans-serif;
+}
+.btn-home1:hover{
+    border: #202d36;
+  border: 2px solid;
+  background-color: var(--color-btn-right);
+  color: var(--color-text);
+  border-radius: 10px;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 18px;
+  font:  "Nunito Sans", sans-serif;
 }
 
 /* PROFILE  */
@@ -351,4 +470,36 @@ flex-direction: column;
   background-color: var(--color-bg);
   border-radius: 10px;
   padding: 10px;
+}
+
+.btn-delete {
+  border: #ff4742;
+  border: 1px solid;
+  background-color: #202d36;
+  color: #ff4742;
+  border-radius: 10px;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+  font:  "Nunito Sans", sans-serif;
+}
+.btn-delete:hover {
+background-color: #ff4742; 
+border: #ff4742;
+color: white;}
+
+.vertical-div-btn {
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+border-radius: 10px;
+padding: 14px;
+display: flex;
+justify-content: right;
+align-items: center;
+flex-direction: column;
 }

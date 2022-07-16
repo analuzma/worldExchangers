@@ -2,7 +2,16 @@
 <div class="container">
 <h1>Welcome {{user.first_name}}🌍</h1>
 
-{{#if userInfo.step2}} {{!-- step2 is true --}}
+
+{{#if userInfo.org_owner}}{{!-- user owns an org --}}
+You are <a href="org/{{userInfo._organization._id}}">{{userInfo._organization.org_name}}</a>'s owner:<br>
+<img src="{{userInfo._organization.org_logo}}" alt="" class="round-icon">  
+<a href="/org/{{userInfo._organization._id}}"><button class="btn-home1">View</button></a>
+<a href="/org/edit/{{userInfo._organization._id}}"> <button class="btn-home1">Edit</button><br></a><br>
+
+
+
+{{else}}{{!-- useris an student --}}
 {{#if userInfo._host_country}}
 See your org: <a href="org/{{userInfo._organization._id}}"><img src="{{userInfo._organization.org_logo}}" alt="" class="headerIcon">{{userInfo._organization.org_name}}</a><br>
 See your host country: <a href="/country/{{userInfo._host_country._id}}"><img src="{{userInfo._host_country.flags.png}}" alt="" class="flag-emoji">{{userInfo._host_country.name.common}}</a>
@@ -12,6 +21,9 @@ See your host country: <a href="/country/{{userInfo._host_country._id}}"><img sr
 <br>
 See your home country: <a href="/country/{{userInfo._home_country._id}}"><img src="{{userInfo._home_country.flags.png}}" alt="" class="flag-emoji">{{userInfo._home_country.name.common}}</a>
 {{/if}}
+{{/if}}
+{{#if userInfo.step2}} {{!-- step2 is true --}}
+
 <br>
 <h6>Countries:</h6>
 <button><a href="/country/list/">All countries</a></button>
@@ -32,7 +44,6 @@ See your home country: <a href="/country/{{userInfo._home_country._id}}"><img sr
 
 {{/if}} {{!-- step2 --}}
 
-{{#if userInfo.org_owner}}
-eres dueño de una ORGANIZACION
-{{/if}}
+
 </div>
+
