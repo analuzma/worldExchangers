@@ -81,7 +81,7 @@ router.get('/:_id/list', checkRole(["ORG", "ADMIN"]), (req,res,next)=>{
   const {_id} = req.params;
    const { user } = req.session;
     User.find({_organization: _id }).then((users)=>{
-      console.log(users)
+
       res.render("org/org-list", {user, users});
      })
     .catch(error=>console.log('error',error))

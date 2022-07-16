@@ -4,12 +4,11 @@ const postSchema = new Schema(
   {
     _author: { type: Schema.Types.ObjectId, ref: "User" },
     comment: String,
-          date: {
+     date: {
        type: Date,
        default: Date.now
      },
-    _organization : {type: Schema.Types.ObjectId, ref: "Organization" },
-    _country: {type: Schema.Types.ObjectId, ref: "Country" },
+     copy: { type: String, max: 300}
   },
   {
     timestamps: true
